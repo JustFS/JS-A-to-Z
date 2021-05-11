@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  list-style: none;
+}
+body {
+  text-align: center;
+  margin: 0;
+  color: white;
+  min-height: 200vh;
+}
+.box {
+  border: 6px solid white;
+  transition: 0.25s ease;
+  background: black;
+  padding: 10px;
+}
+p {
+  visibility: hidden;
+  opacity: 0;
+  width: 240px;
+  margin: 10px auto 0;
+  transform: translateX(-200px);
+  transition: 0.6s;
+  position: relative;
+}
+button {
+  position: relative;
+}
+.question-clicked {
+  background: rgb(47, 47, 47);
+  border-radius: 30px;
+  border: 6px dashed pink;
+}
+.show-response {
+  visibility: visible;
+  transform: translateX(0);
+  opacity: 1;
+}
+.mousemove {
+  height: 50px;
+  width: 50px;
+  border: 2px solid pink;
+  border-radius: 50px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.2s ease-out;
+  z-index: -1;
+}
+nav {
+  background: teal;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: -50px;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+nav::after {
+  content: "";
+  height: 150px;
+  width: 150px;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 255, 255, 0.69),
+    transparent
+  );
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: var(--x);
+  top: var(--y);
+  border-radius: 150px;
+  transition: 0.25s;
+  z-index: 20;
+  opacity: 0;
+}
+nav:hover::after {
+  opacity: 1;
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
