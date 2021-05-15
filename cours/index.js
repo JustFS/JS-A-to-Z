@@ -1,274 +1,285 @@
-// SELECTEURS
-// Dans la console document.querySelector('body')
-// Dans la console document.querySelector('body > h1')
-// document.querySelector('p').style.background='green'
-// document.querySelector('img').style.height='200px'
+// Tableaux
+// let array = ["Bordeaux", "Toulouse", "Nantes"];
+// console.log(array[0][2]);
 
-// CLICK :
-// const body = document.body;
-const questionContainer = document.querySelector(".click-event");
+// let array = ["Bordeaux", 24, true, [1,2], {nom: Denis}];
 
-// questionContainer.style.border = "1px solid teal";
-questionContainer.addEventListener("click", () => {
-  // console.log("click !");
-  // questionContainer.style.background = "salmon";
-  // questionContainer.style.borderRadius = "50px";
-  questionContainer.classList.toggle("question-clicked");
-});
+let data = [
+  {
+    pseudo: "Denis",
+    age: 33,
+    technos: ["Javascript", "React", "NodeJs"],
+    admin: false,
+  },
+  {
+    pseudo: "Samia",
+    age: 24,
+    technos: ["CSS", "React", "PHP"],
+    admin: false,
+  },
+  {
+    pseudo: "Nikola",
+    age: 45,
+    technos: ["HTML", "React", "Python"],
+    admin: true,
+  },
+];
 
-const btn1 = document.querySelector("#btn-1");
-const btn2 = document.getElementById("btn-2");
-const response = document.querySelector("p");
+// se balader dans un objet
+// Ajouter des éléments
 
-btn1.addEventListener("click", () => {
-  response.classList.add("show-response");
-  response.style.background = "green";
-});
+//---------------------------
+// Les structures de contrôle
+//---------------------------
+if (data[0].age > data[1].age) {
+  // console.log(data[0].pseudo + " est plus agé que " + data[1].pseudo);
+} else {
+  // Valeur si faux
+}
 
-btn2.addEventListener("click", () => {
-  response.classList.add("show-response");
-  response.style.background = "red";
-});
+// While
+let w = 0;
 
-// Injection de class Priorités CSS
+while (w < 10) {
+  w++;
+  // console.log("la valeur de W est de : " + w);
+}
 
-//--------------------------------------------
-// MOUSEMOVE
-const mousemove = document.querySelector(".mousemove");
+// Do while
+let i = 0;
 
-window.addEventListener("mousemove", (e) => {
-  mousemove.style.left = e.pageX + "px";
-  mousemove.style.top = e.pageY + "px";
-});
+do {
+  i++;
+  // console.log(i);
+} while (i < 5);
 
-mousemove.addEventListener("mousedown", (e) => {
-  mousemove.style.transform = "scale(2) translate(-25%, -25%)";
-  mousemove.style.border = "3px double teal";
-});
+// For
+for (const user of data) {
+  // document.body.innerHTML += `<li>${user.pseudo}</li>`;
+}
 
-mousemove.addEventListener("mouseup", (e) => {
-  mousemove.style.transform = "scale(1) translate(-50%, -50%)";
-});
+for (i = 0; i < data.length; i++) {
+  // console.log(i);
+  // console.log(data[i].admin);
+  // document.body.innerHTML += "<h2>" + data[i].pseudo + "</h2>";
+}
 
-questionContainer.addEventListener("mouseenter", () => {
-  questionContainer.style.background = "rgba(3,3,3, 0.7";
-});
-
-// mouseleave aussi quand la souris s'arrete
-questionContainer.addEventListener("mouseout", () => {
-  questionContainer.style.background = "pink";
-});
-
-response.addEventListener("mouseover", () => {
-  response.style.transform = "rotate(2deg)";
-});
-
-//--------------------------------------------
-
-const keypressContainer = document.querySelector(".keypress");
-const key = document.getElementById("key");
-
-document.addEventListener("keypress", (e) => {
-  key.textContent = e.key;
-
-  if (e.key === "j") {
-    keypressContainer.style.background = "pink";
-  } else if (e.key === "h") {
-    keypressContainer.style.background = "teal";
-  } else {
-    keypressContainer.style.background = "red";
+document.body.addEventListener("click", (e) => {
+  switch (e.target.id) {
+    case "javascript":
+      document.body.style.background = "yellow";
+      break;
+    case "php":
+      document.body.style.background = "violet";
+      break;
+    case "python":
+      document.body.style.background = "blue";
+      break;
+    default:
+      null;
   }
-
-  ring(e.key);
 });
 
-const ring = (key) => {
-  const audio = new Audio();
-  audio.src = key + ".mp3";
-  audio.play();
+//------------------
+// Text Anim Project
+//------------------
+
+// Méthodes String
+let string = "Javascript est un langage de programmation orienté objet";
+
+// Types
+// console.log(typeof String(23));
+// console.log(typeof Number("42"));
+// console.log(eval(parseInt("1") + 2));
+// console.log(isNaN(string));
+
+// console.log(string.length);
+// console.log(string[22]);
+// console.log(string[string.length - 1]);
+
+// console.log(string.indexOf("langage"));
+// console.log(string.indexOf('test')); // Return -1
+
+// let newString = string.slice(2);
+// let newString = string.slice(5, 17);
+// console.log(newString);
+
+// console.log(string.split("i"));
+
+// console.log(string.toLocaleLowerCase());
+// console.log(string.toLocaleUpperCase());
+
+// console.log(string.replace("Javascript", "PHP"));
+
+//------------------------------------
+// Numbers
+
+let number = 42.1232;
+let numberString = "42.12 est un chiffre";
+
+// console.log(number.toFixed(1));
+// console.log(parseInt(number));
+// console.log(parseInt(numberString));
+// console.log(parseFloat(numberString));
+
+// Math
+// console.log(Math.PI);
+// console.log(Math.round(4.4));
+// console.log(Math.floor(4.7));
+// console.log(Math.ceil(4.1));
+// console.log(Math.pow(2, 4)); //Puissance
+// console.log(Math.sqrt(16)); // Racine carré
+
+// console.log(Math.floor(Math.random() * 100));
+
+//------------------------------------
+// Méthodes Array
+
+let array1 = ["Javascript", "Php", "Python"];
+let array2 = ["Ruby", "Solidity"];
+
+// let newArray = array1.concat(array2);
+// console.log(newArray);
+
+// let newArray = [...array1, ...array2];
+// console.log(newArray);
+
+// console.log(array1.join("-"));
+
+// console.log(array1.slice(1));
+// console.log(array1.slice(1, 2));
+
+// console.log(array1.indexOf("Python"));
+
+// array2.forEach((techno) => console.log(techno));
+
+// console.log(array1.every((techno) => techno === "Php"));
+// console.log(array1.some((techno) => techno === "Php"));
+
+// let x = array1.shift();
+// console.log(x, array1);
+
+// const restArray = array1.splice(1, 1, "C++");
+// console.log(array1, restArray);
+
+// console.log(array1.pop());
+
+// IMPORTANT //
+let arrayNumber = [4, 74, 28, 12, 1];
+// console.log(arrayNumber.reduce((x, y) => x + y));
+arrayNumber.push(17);
+// console.log(arrayNumber);
+
+// console.log(arrayNumber.filter((number) => number > 10));
+// console.log(arrayNumber.sort());
+// console.log(arrayNumber.sort((a, b) => b - a));
+
+// document.body.innerHTML = array1
+//   .map(
+//     (techno) =>
+//       `
+//     <h1 id=${techno.toLocaleLowerCase()}>${techno}</h1>
+//   `
+//   )
+//   .join("");
+
+//-------------------------------------------
+// Objects
+// map, sort, filter (includes, match, contains)
+// document.body.innerHTML = data
+//   .filter((user) => user.admin === false)
+//   .sort((a, b) => a.age - b.age)
+//   .map(
+//     (user) =>
+//       `
+//     <div class="user-card">
+//       <h2>${user.pseudo}</h2>
+//       <p>Age : ${user.age}</p>
+//       <p>Status : ${user.admin ? "Modérateur" : "Membre"}</p>
+//     </div>
+//   `
+//   )
+//   .join("");
+
+//------------------
+// Générateur de mdp
+//------------------
+
+//----------------------------------------
+// Date
+
+let date = new Date();
+
+// Timestamp
+timestamp = Date.parse(date);
+
+// IsoString
+// console.log(date.toISOString());
+
+const dateParser = (chaine) => {
+  let newDate = new Date(chaine).toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return newDate;
 };
 
-//--------------------------------------------
+// console.log(dateParser(date));
+// console.log(dateParser(timestamp));
 
-const nav = document.querySelector("nav");
+// Parler vidéo sur les dates
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 120) {
-    nav.style.top = 0;
-  } else {
-    nav.style.top = "-50px";
-  }
+//-----------------------------------------
+// Destructuring
+
+let moreData = {
+  destVar: ["Element 1", "Element 2"],
+};
+
+const { destVar } = moreData;
+// console.log(destVar[0]);
+
+let array3 = [70, 80, 90];
+let [x, y, z] = array3;
+// console.log(x);
+// console.log(y);
+// console.log(z);
+
+let otherDate = new Date();
+let isoDate = otherDate.toISOString();
+
+const dateDestr = (dest) => {
+  let newDate = dest.split("T")[0];
+  [yy, mm, dd] = newDate.split("-");
+  return [dd, mm, yy].join("/");
+};
+
+// console.log(dateDestr(isoDate));
+
+//-----------------------------------------
+// Dataset
+
+// console.log(document.getElementById("javascript").dataset.lang);
+
+const h3 = document.querySelectorAll("h3");
+
+h3.forEach((techno) => {
+  // console.log(techno.dataset.lang);
 });
 
-//--------------------------------------------
+//-----------------------------------------
+// REGEX
 
-const inputName = document.querySelector(".change > input");
-const select = document.querySelector("select");
-const form = document.querySelector("form");
-let pseudo = "";
-let language = "";
+let chaine = "Voici une chaine";
+// console.log(chaine.search("chain"));
+// console.log(chaine.search(/chaine/));
 
-// change avant
-inputName.addEventListener("input", (e) => {
-  pseudo = e.target.value;
-});
-select.addEventListener("input", (e) => {
-  language = e.target.value;
-});
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (cgv.checked) {
-    document.querySelector("form > div").innerHTML = `
-        <h3>Pseudo : ${pseudo}</h3>
-        <h4>Langage préféré : ${language}</h4>
-      `;
-  } else {
-    alert("Veuillez cocher les CGV");
-  }
-});
+console.log(chaine.replace(/chaine/, "variable"));
 
-//--------------------------------------------
+// i enlève la case sensitive
+console.log(chaine.match(/chaine/i));
+console.log(chaine.match(/[abc]/));
 
-window.addEventListener("load", () => {
-  console.log("document chargé !");
-});
-
-//--------------------------------------------
-
-// const boxes = document.getElementsByClassName("box");
-const boxes = document.querySelectorAll(".box");
-
-boxes.forEach((box) => {
-  box.addEventListener("click", (e) => {
-    e.target.style.transform = "scale(0.7)";
-  });
-});
-//--------------------------------------------
-// Calculatrice
-//--------------------------------------------
-
-// addEventListener Vs onclick
-// 3ème argument stop propagation
-// document.body.addEventListener(
-//   "click",
-//   ring("Enter"),
-//   false // useCapture
-// );
-
-// https://gomakethings.com/what-is-that-third-argument-on-the-vanilla-js-addeventlistener-method-and-when-do-you-need-it/
-// document.addEventListener('focus', function (event) {
-// 	console.log('something came into focus: ' + event.target);
-// });
-
-// Montrer onclick dans l'HTML
-// onclick overwrite mais compatible très vieux navigateur
-// document.body.onclick = function () {
-//   console.log("Onclick Alert 1 !");
-// };
-
-// document.body.onclick = function (e) {
-//   alert("Onclick Alert 2 !");
-// };
-
-// Stop propagation
-// questionContainer.addEventListener("click", (e) => {
-//   alert("test");
-//   e.stopPropagation();
-// });
-
-// removeEventListener
-
-//--------------------------------------------
-
-// const after = document.querySelector(".mousemove::after");
-
-window.addEventListener("mousemove", (e) => {
-  nav.style.setProperty("--x", e.layerX + "px");
-  nav.style.setProperty("--y", e.layerY + "px");
-});
-
-//--------------------------------------------
-
-// Browser Object Model (BOM)
-// Objet window contient innerWidth, innerHeight
-// window.open("http://google.com", "Cours JS", "height=600,width=800");
-// window.close() dans la console pour test
-
-// Evenements adossés à l'objet Window : Alert, confirm, prompt
-
-// confirm
-btn2.addEventListener("click", () => {
-  confirm("Voulez vous vraiment vous tromper ?");
-});
-
-// prompt
-btn1.addEventListener("click", () => {
-  let answer = prompt("Bravo vous avez gagné, entrez votre nom");
-
-  questionContainer.innerHTML += "<h3>Bravo " + answer + "</h3>";
-});
-
-setTimeout(() => {
-  questionContainer.style.borderRadius = "160px";
-}, 2000);
-
-let interval = setInterval(() => {
-  document.body.innerHTML +=
-    "<div class='box'><h2>Nouvelle Boite !</h2></div> ";
-}, 2000);
-
-document.body.addEventListener(
-  "click",
-  (e) => {
-    if (e.target.tagName !== "BODY") {
-      e.target.remove();
-      clearInterval(interval);
-    }
-  },
-  false
-);
-
-// Location
-// console.log(location.href);
-// console.log(location.host);
-// console.log(location.pathname);
-// console.log(location.search);
-// location.replace("http://lequipe.fr");
-// location.assign('http://lequipe.fr);
-
-// window.onload = () => {
-//   location.href = "http://twitter.fr";
-// };
-
-// navigator
-// identifie le navigateur web
-// navigator.userAgent
-
-// montrer la location dans le navigateur
-// https://developer.mozilla.org/fr/docs/Web/API/Geolocation/getCurrentPosition
-
-// var options = {
-//   enableHighAccuracy: true,
-//   timeout: 5000,
-//   maximumAge: 0,
-// };
-
-// function success(pos) {
-//   var crd = pos.coords;
-
-//   console.log("Votre position actuelle est :");
-//   console.log(`Latitude : ${crd.latitude}`);
-//   console.log(`Longitude : ${crd.longitude}`);
-//   console.log(`La précision est de ${crd.accuracy} mètres.`);
-// }
-
-// function error(err) {
-//   console.warn(`ERREUR (${err.code}): ${err.message}`);
-// }
-
-// navigator.geolocation.getCurrentPosition(success, error, options);
-
-// History
-// console.log(window.history);
-// window.history.back();
-// history.go(-1)
+let separator = 2984981651;
+console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
