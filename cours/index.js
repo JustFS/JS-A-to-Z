@@ -271,15 +271,32 @@ h3.forEach((techno) => {
 //-----------------------------------------
 // REGEX
 
-let chaine = "Voici une chaine";
+let mail = "from_scratch12@gmail.com";
 // console.log(chaine.search("chain"));
 // console.log(chaine.search(/chaine/));
 
-console.log(chaine.replace(/chaine/, "variable"));
+// console.log(mail.replace(/from/, "scratch"));
 
 // i enlève la case sensitive
-console.log(chaine.match(/chaine/i));
-console.log(chaine.match(/[abc]/));
+// console.log(mail.match(/Scratch/i));
+// console.log(mail.match(/[zu]/));
+// console.log(mail.match(/[123]/));
+
+// Tous les chiffres
+// console.log(mail.match(/\d/));
+
+// Toutes les lettres
+// console.log(mail.match(/[a-z]/));
+
+// ^ n'est pas
+// console.log(mail.match(/[^a-z_\d@.]/));
+
+// \w tous les caractères || $ = fin de ligne
+// console.log(mail.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
+
+// Parler cheatsheet
 
 let separator = 2984981651;
-console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+// console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+
+// Projet Form Checker
