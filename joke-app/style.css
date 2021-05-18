@@ -1,0 +1,26 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.6rem;
+  background: #d6e1f0;
+  color: rgb(241, 241, 241);
+}
+.app {
+  width: 70%;
+  min-width: 400px;
+  max-width: 800px;
+  background: rgb(145, 115, 246);
+  border-radius: 14px;
+  padding: 20px 40px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.307);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.app:hover {
+  transform: scale(1.01);
+}

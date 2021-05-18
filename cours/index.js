@@ -1,302 +1,119 @@
-// Tableaux
-// let array = ["Bordeaux", "Toulouse", "Nantes"];
-// console.log(array[0][2]);
+// Définition
 
-// let array = ["Bordeaux", 24, true, [1,2], {nom: Denis}];
+// XMLHttpRequest
 
-let data = [
-  {
-    pseudo: "Denis",
-    age: 33,
-    technos: ["Javascript", "React", "NodeJs"],
-    admin: false,
+function reqListener() {
+  // console.log(this.responseText);
+}
+
+let req = new XMLHttpRequest();
+req.onload = reqListener;
+// req.open("get", "data.json", true);
+req.open("get", "data.txt", true);
+req.send();
+
+// Fetch
+
+// fetch("url", "options").then(
+//   (response) => {
+//     // response
+//   }).catch((err) => console.log(err))
+// );
+
+// fetch("data.txt")
+//   .then((res) => res.text())
+//   .then((data) => console.log(data));
+
+// fetch("data.json")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+//---------------
+// Projet Blagues
+//---------------
+
+// L'interface Headers vous permet de créer vos propres objets d'en-têtes via le constructeur Headers
+
+const myHeaders = new Headers();
+
+const init = {
+  method: "GET", // POST, PUT, DELETE
+  headers: myHeaders,
+  mode: "cors",
+  cache: "default",
+};
+fetch("data.json", init).then((res) => res.json());
+// .then((data) => console.log(data));
+
+//--------------------------
+// npm i -g json-server
+// json-server --w db.json
+
+let init2 = {
+  method: "POST", // POST, PUT, DELETE
+  headers: {
+    "Content-Type": "application/json",
   },
-  {
-    pseudo: "Samia",
-    age: 24,
-    technos: ["CSS", "React", "PHP"],
-    admin: false,
-  },
-  {
-    pseudo: "Nikola",
-    age: 45,
-    technos: ["HTML", "React", "Python"],
-    admin: true,
-  },
-];
+  body: JSON.stringify({
+    pseudo: "From Scratch",
+    message: "Yo les gens !",
+  }),
+  mode: "cors",
+  credentials: "same-origin",
+};
 
-// se balader dans un objet
-// Ajouter des éléments
-
-//---------------------------
-// Les structures de contrôle
-//---------------------------
-if (data[0].age > data[1].age) {
-  // console.log(data[0].pseudo + " est plus agé que " + data[1].pseudo);
-} else {
-  // Valeur si faux
-}
-
-// While
-let w = 0;
-
-while (w < 10) {
-  w++;
-  // console.log("la valeur de W est de : " + w);
-}
-
-// Do while
-let i = 0;
-
-do {
-  i++;
-  // console.log(i);
-} while (i < 5);
-
-// For
-for (const user of data) {
-  // document.body.innerHTML += `<li>${user.pseudo}</li>`;
-}
-
-for (i = 0; i < data.length; i++) {
-  // console.log(i);
-  // console.log(data[i].admin);
-  // document.body.innerHTML += "<h2>" + data[i].pseudo + "</h2>";
-}
-
-document.body.addEventListener("click", (e) => {
-  switch (e.target.id) {
-    case "javascript":
-      document.body.style.background = "yellow";
-      break;
-    case "php":
-      document.body.style.background = "violet";
-      break;
-    case "python":
-      document.body.style.background = "blue";
-      break;
-    default:
-      null;
-  }
+document.querySelector("form").addEventListener("submit", (e) => {
+  // e.preventDefault();
+  fetch("http://localhost:3000/posts", init2);
 });
 
-//------------------
-// Text Anim Project
-//------------------
+//-----------
+// Asycnhrone
+//-----------
 
-// Méthodes String
-let string = "Javascript est un langage de programmation orienté objet";
+setTimeout(() => {
+  // console.log("Test !");
+}, 2000);
 
-// Types
-// console.log(typeof String(23));
-// console.log(typeof Number("42"));
-// console.log(eval(parseInt("1") + 2));
-// console.log(isNaN(string));
+// Promise
+// fetch('monlien').then(() => ...)
 
-// console.log(string.length);
-// console.log(string[22]);
-// console.log(string[string.length - 1]);
+// async/await
+async function fetchData() {
+  // await fetch('monlien')
+  // await maFonction();
+  // Execute ensuite...
+}
+const fetchData2 = async () => {
+  // await fetch('monlien')
+  // await maFonction();
+  // Execute ensuite...
+};
 
-// console.log(string.indexOf("langage"));
-// console.log(string.indexOf('test')); // Return -1
+//---------
+// User Api
+//---------
 
-// let newString = string.slice(2);
-// let newString = string.slice(5, 17);
-// console.log(newString);
+//--------------------------------
+// JSON
+// JSON = format de données
 
-// console.log(string.split("i"));
+// méthode .json() Elle retourne une promesse qui s'auto-résout en renvoyant le corps de la requête parsée au format JSON.
 
-// console.log(string.toLocaleLowerCase());
-// console.log(string.toLocaleUpperCase());
-
-// console.log(string.replace("Javascript", "PHP"));
-
-//------------------------------------
-// Numbers
-
-let number = 42.1232;
-let numberString = "42.12 est un chiffre";
-
-// console.log(number.toFixed(1));
-// console.log(parseInt(number));
-// console.log(parseInt(numberString));
-// console.log(parseFloat(numberString));
-
-// Math
-// console.log(Math.PI);
-// console.log(Math.round(4.4));
-// console.log(Math.floor(4.7));
-// console.log(Math.ceil(4.1));
-// console.log(Math.pow(2, 4)); //Puissance
-// console.log(Math.sqrt(16)); // Racine carré
-
-// console.log(Math.floor(Math.random() * 100));
-
-//------------------------------------
-// Méthodes Array
-
-let array1 = ["Javascript", "Php", "Python"];
-let array2 = ["Ruby", "Solidity"];
-
-// let newArray = array1.concat(array2);
-// console.log(newArray);
-
-// let newArray = [...array1, ...array2];
-// console.log(newArray);
-
-// console.log(array1.join("-"));
-
-// console.log(array1.slice(1));
-// console.log(array1.slice(1, 2));
-
-// console.log(array1.indexOf("Python"));
-
-// array2.forEach((techno) => console.log(techno));
-
-// console.log(array1.every((techno) => techno === "Php"));
-// console.log(array1.some((techno) => techno === "Php"));
-
-// let x = array1.shift();
-// console.log(x, array1);
-
-// const restArray = array1.splice(1, 1, "C++");
-// console.log(array1, restArray);
-
-// console.log(array1.pop());
-
-// IMPORTANT //
-let arrayNumber = [4, 74, 28, 12, 1];
-// console.log(arrayNumber.reduce((x, y) => x + y));
-arrayNumber.push(17);
-// console.log(arrayNumber);
-
-// console.log(arrayNumber.filter((number) => number > 10));
-// console.log(arrayNumber.sort());
-// console.log(arrayNumber.sort((a, b) => b - a));
-
-// document.body.innerHTML = array1
-//   .map(
-//     (techno) =>
-//       `
-//     <h1 id=${techno.toLocaleLowerCase()}>${techno}</h1>
-//   `
-//   )
-//   .join("");
-
-//-------------------------------------------
-// Objects
-// map, sort, filter (includes, match, contains)
-// document.body.innerHTML = data
-//   .filter((user) => user.admin === false)
-//   .sort((a, b) => a.age - b.age)
-//   .map(
-//     (user) =>
-//       `
-//     <div class="user-card">
-//       <h2>${user.pseudo}</h2>
-//       <p>Age : ${user.age}</p>
-//       <p>Status : ${user.admin ? "Modérateur" : "Membre"}</p>
-//     </div>
-//   `
-//   )
-//   .join("");
-
-//------------------
-// Générateur de mdp
-//------------------
-
-//----------------------------------------
-// Date
-
-let date = new Date();
-
-// Timestamp
-timestamp = Date.parse(date);
-
-// IsoString
-// console.log(date.toISOString());
-
-const dateParser = (chaine) => {
-  let newDate = new Date(chaine).toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+fetch("data.json")
+  .then((res) => res.json())
+  .then((data) => {
+    let settings = JSON.stringify(data);
+    console.log(JSON.parse(settings));
   });
-  return newDate;
-};
 
-// console.log(dateParser(date));
-// console.log(dateParser(timestamp));
+//---------
+// Meal Api
+//---------
 
-// Parler vidéo sur les dates
+//---------------------------------
+// Web API
 
-//-----------------------------------------
-// Destructuring
+// Local storage
 
-let moreData = {
-  destVar: ["Element 1", "Element 2"],
-};
-
-const { destVar } = moreData;
-// console.log(destVar[0]);
-
-let array3 = [70, 80, 90];
-let [x, y, z] = array3;
-// console.log(x);
-// console.log(y);
-// console.log(z);
-
-let otherDate = new Date();
-let isoDate = otherDate.toISOString();
-
-const dateDestr = (dest) => {
-  let newDate = dest.split("T")[0];
-  [yy, mm, dd] = newDate.split("-");
-  return [dd, mm, yy].join("/");
-};
-
-// console.log(dateDestr(isoDate));
-
-//-----------------------------------------
-// Dataset
-
-// console.log(document.getElementById("javascript").dataset.lang);
-
-const h3 = document.querySelectorAll("h3");
-
-h3.forEach((techno) => {
-  // console.log(techno.dataset.lang);
-});
-
-//-----------------------------------------
-// REGEX
-
-let mail = "from_scratch12@gmail.com";
-// console.log(chaine.search("chain"));
-// console.log(chaine.search(/chaine/));
-
-// console.log(mail.replace(/from/, "scratch"));
-
-// i enlève la case sensitive
-// console.log(mail.match(/Scratch/i));
-// console.log(mail.match(/[zu]/));
-// console.log(mail.match(/[123]/));
-
-// Tous les chiffres
-// console.log(mail.match(/\d/));
-
-// Toutes les lettres
-// console.log(mail.match(/[a-z]/));
-
-// ^ n'est pas
-// console.log(mail.match(/[^a-z_\d@.]/));
-
-// \w tous les caractères || $ = fin de ligne
-// console.log(mail.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
-
-// Parler cheatsheet
-
-let separator = 2984981651;
-// console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
-
-// Projet Form Checker
+// Cookie + notif

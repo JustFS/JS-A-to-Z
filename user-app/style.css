@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.card {
+  flex: 1 0 30%;
+  margin: 10px;
+  padding: 20px 20px 0;
+  text-align: center;
+  border-radius: 8px;
+  width: 350px;
+  background: #fff2e1;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 0 1px 6px rgba(51, 51, 51, 0.192);
+  position: relative;
+  min-height: 260px;
+  display: grid;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  height: 76px;
+  width: 100%;
+  position: absolute;
+  background: url(https://picsum.photos/600/100) center/cover;
+  filter: opacity(0.7) grayscale(80%);
+}
+img {
+  border-radius: 150px;
+  margin: 4px auto 0;
+  height: 100px;
+  display: block;
+  box-shadow: 0 2px 6px rgba(51, 51, 51, 0.652);
+  z-index: 2;
+}
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+em,
+p {
+  font-size: 0.9rem;
+}

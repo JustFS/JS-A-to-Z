@@ -1,0 +1,36 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "Cascadia Mono PL, 'Courier New', monospace",
+  "editor.tabSize": 2,
+  "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.fontWeight": "400",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.fontSize": 13.4,
+  "explorer.confirmDragAndDrop": false,
+  "editor.wordWrap": "on",
+  "explorer.confirmDelete": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "liveSassCompile.settings.autoprefix": [],
+  "workbench.colorTheme": "One Dark Pro",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "diffEditor.wordWrap": "on",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 2,
+  "liveServer.settings.donotVerifyTags": true,
+  "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+  "emmet.triggerExpansionOnTab": true,
+  "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
