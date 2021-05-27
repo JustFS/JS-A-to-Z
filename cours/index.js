@@ -6,9 +6,38 @@ const obj = {
   pseudo: "From Scratch",
   ville: "Bordeaux",
 };
+
+// console.log(obj.ville);
+// console.log(obj["pseudo"]);
+
+// Ajouter
 obj.age = 24;
-// console.log(objet);
-// console.log(objet.ville);
+
+// Supprimer
+delete obj.age;
+
+// Checker si propriété existe
+// console.log("pseudo" in obj);
+// console.log("age" in obj);
+
+// Parcourir l'objet
+for (const key in obj) {
+  // console.log(key + " : " + obj[key]);
+}
+
+// Fonction dans l'objet
+// direBonjour: function() {
+//   console.log("Bonjour !");
+// }
+
+// direBonjour() {
+//   console.log("Bonjour");
+// }
+
+// THIS
+// direBonjour() {
+//   console.log("Bonjour je m'appelle" + this.pseudo);
+// }
 
 //----------------
 // Méthodes objets
@@ -41,17 +70,25 @@ newObj.pseudo = "Test";
 newObj.adresse = "24 avenue du Code";
 // console.log(obj);
 
+//--------------------------------
 // 3 FACONS DE CONSTRUIRE UN OBJET
+//--------------------------------
+
 // Fonction constructeur
 function User(pseudo, ville) {
   this.pseudo = pseudo;
   this.ville = ville;
+
+  this.getCity = function () {
+    console.log(this.pseudo + " habite à " + this.ville);
+  };
 }
-// This keyword, permet de stocker une valeur
+
 // Créer nouvelle instance avec New
 const user1 = new User("From Scratch", "Bordeaux");
 
 // console.log(user1.pseudo);
+// user1.getCity()
 
 //----------------
 // PARENTHESE THIS
@@ -89,13 +126,20 @@ function User4(pseudo, ville) {
   this.pseudo = pseudo;
   this.ville = ville;
 
-  this.sayMyName = function () {
-    console.log("Bonjour je suis " + pseudo);
+  this.sayMyName = () => {
+    console.log("Bonjour je suis " + this.pseudo);
   };
 }
-User4.prototype.sayGoodbye = function () {
-  console.log("Adios");
+// fonction flechée qui ne marche pas
+User4.prototype.sayCity = () => {
+  console.log("J'habite à : " + this.ville);
 };
+
+// Fonction qui fonctionne
+// User4.prototype.sayCity = function () {
+//   console.log("J'habite à : " + this.ville);
+// };
+
 // sayGoodbye est dans le prototype
 Object.assign(User4.prototype, {
   method1() {},
@@ -103,6 +147,7 @@ Object.assign(User4.prototype, {
   method3() {},
 });
 const person = new User4("Patrice", "Nantes");
+// person.sayCity();
 // console.log(person);
 // person.sayMyName();
 
