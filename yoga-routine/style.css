@@ -2,3 +2,6 @@
   list-style-type: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.arrowLeft {
+  transform: rotate(180deg);
+}

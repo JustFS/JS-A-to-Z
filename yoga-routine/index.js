@@ -1,3 +1,5 @@
+const main = document.querySelector("main");
+
 let exerciceArray = [
   { pic: 0, min: 1 },
   { pic: 1, min: 1 },
@@ -19,28 +21,35 @@ class Routine {
   }
 
   updateCountdown() {
-    console.log(this.minutes);
-    console.log(this.seconds);
-    console.log(this.index);
-
     this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
 
-    if (this.seconds == "00") {
-      this.minutes--;
-      this.seconds = 59;
-    } else if (this.minutes === 0 && this.seconds == "00") {
-      this.index++;
-      this.ring();
-    } else {
-      this.seconds--;
+    if (this.index === exerciceArray.length - 1) {
+      return display.endExercice();
     }
 
-    if (this.index === exerciceArray.length) {
-      clearInterval(this.interval);
-    }
+    setTimeout(() => {
+      if (this.minutes === 0 && this.seconds == "00") {
+        this.index++;
+        this.ring();
+        this.minutes = exerciceArray[this.index].min;
+        this.seconds = 0;
+        this.updateCountdown();
+      } else if (this.seconds === "00") {
+        this.minutes--;
+        this.seconds = 59;
+        this.updateCountdown();
+      } else {
+        this.seconds--;
+        this.updateCountdown();
+      }
+    }, 10);
 
-    return `<div>${this.minutes}:${this.seconds}</div>
-    <img src="./img/${this.index}.png" />`;
+    main.innerHTML = `
+      <div class="exercice-container">
+        <p>${this.minutes}:${this.seconds}</p>
+        <img src="./img/${this.index}.png" />
+        <div>${this.index + 1}/${exerciceArray.length}</div>
+      </div>`;
   }
 
   ring() {
@@ -53,7 +62,7 @@ class Routine {
 const display = {
   pageContent: function (title, content, btn) {
     document.querySelector("h1").textContent = title;
-    document.querySelector("main").innerHTML = content;
+    main.innerHTML = content;
     document.querySelector(".btn-container").innerHTML = btn;
   },
   exercices: function () {
@@ -61,9 +70,11 @@ const display = {
     exerciceArray.map((exercice) => {
       mainDisplay.push(
         `<li>
-          <input type="number" min="1" max="10" value="1"><span>min</span>
+          <input type="number" id=${exercice.pic} min="1" max="10" value=${exercice.min}><span>min</span>
           <i>&#10005;</i>
           <img src="./img/${exercice.pic}.png" />
+          <button class="arrowLeft" data-pic=${exercice.pic}>&#10140;</button>
+          <button class="arrowRight" data-pic=${exercice.pic}>&#10140;</button>
         </li>`
       );
     });
@@ -102,3 +113,34 @@ const display = {
 };
 
 display.lobby();
+
+// Handle minutes change
+document.querySelectorAll('input[type="number"]').forEach((input) => {
+  input.addEventListener("input", (e) => {
+    exerciceArray.map((exercice) => {
+      if (exercice.pic == e.target.id) {
+        exercice.min = parseInt(e.target.value);
+        // console.log(exerciceArray);
+      }
+    });
+  });
+});
+
+document.querySelectorAll(".arrowLeft").forEach((arrow) =>
+  arrow.addEventListener("click", (e) => {
+    let position = 0;
+    exerciceArray.map((exercice) => {
+      if (exercice.pic == e.target.dataset.pic && position !== 0) {
+        [exerciceArray[position], exerciceArray[position - 1]] = [
+          exerciceArray[position - 1],
+          exerciceArray[position],
+        ];
+
+        console.log(exerciceArray);
+        // display.lobby();
+      } else {
+        position++;
+      }
+    });
+  })
+);
