@@ -1,0 +1,11 @@
+canvas {
+  border: 1px solid #000;
+}
+body {
+  cursor: crosshair;
+}
+#reset {
+  margin-top: 10px;
+  margin-left: 5px;
+  float: left;
+}
