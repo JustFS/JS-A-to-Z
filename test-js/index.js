@@ -1,2 +1,3 @@
 // import { addNum } from "./add";
-// console.log(addNum(5, 150));
+
+// console.log(addNum(5, 16));

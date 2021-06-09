@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1623246389010" clover="3.2.0">
+  <project timestamp="1623246389010" name="All files">
+    <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2" elements="8" coveredelements="6" complexity="0" loc="5" ncloc="5" packages="1" files="2" classes="2"/>
+    <file name="add.js" path="C:\Users\julie\Desktop\JS-P6\test-js\add.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+    </file>
+    <file name="fusionArray.js" path="C:\Users\julie\Desktop\JS-P6\test-js\fusionArray.js">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <line num="2" count="2" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
