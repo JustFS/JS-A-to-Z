@@ -29,7 +29,6 @@
 
 // window.addEventListener('load', draw)
 
-
 //------------
 // Drag & drop
 //------------
@@ -38,14 +37,85 @@
 // Notification
 //-------------
 
-let permission = await Notification.requestPermission();
-const greeting = new Notification('Hi, How are you?');
+//-------------
+// Le try/catch
+//-------------
 
+// montrer schéma
 
+// try {
+//   // Test ce block
+//   mafonction();
+// } catch (err) {
+//   // console.log(err.name + " : " + err.message);
+// }
 
+// function isValidJSON(txt) {
+//   try {
+//     JSON.parse(txt);
+//     return true;
+//   } catch {
+//     return false;
+//   }
+// }
 
+// // console.log(isValidJSON());
 
+// // Finally try/Catch/Finally
+// try {
+//   // Test ce block
+//   mafonction();
+// } catch (err) {
+//   // console.log(err.name + " : " + err.message);
+// } finally {
+//   // Code à executer quoi qu'il arrive
+// }
 
+// // Throw
+// function isNumber(num) {
+//   if (isNaN(num)) {
+//     throw "Not a number !";
+//   }
+// }
+// try {
+//   isNumber("Z");
+// } catch (err) {
+//   // console.log(err);
+// }
+
+//------------------
+// PLUS GROS PROJETS
+//------------------
+
+//------------
+// Strict mode
+//------------
+
+// Les langages informatiques sont des langages qui évoluent vite et de nouvelles fonctionnalités sont régulièrement ajoutées tandis que d’autres parties du langage, plus anciennes, peuvent être modifiées ou déclarées obsolètes.
+// Pendant longtemps, les créateurs du JavaScript n’ont fait qu’ajouter de nouvelles fonctionnalités sans jamais toucher les anciennes. L’avantage principal de cela a été que les développeurs pouvaient utiliser l’ensemble du langage sans se soucier de problème de comptabilité.
+
+// Cependant, la contrepartie était qu’on avait un langage moins flexible et avec d’anciennes fonctionnalités qui ne faisaient plus beaucoup de sens dans un contexte actuel. Ainsi, à la fin des années 2000, certaines fonctionnalités du langage ont commencé à être modifiées, notamment en termes de la gestion des erreurs.
+
+// Afin que les sites possédant d’anciens codes JavaScript (des codes JavaScript implémentant les fonctionnalités modifiées avant modification) restent fonctionnels, la plupart des modifications apportées au langage ont été désactivées par défaut. Pour activer ces modifications et utiliser ces nouvelles fonctionnalités du JavaScript, nous allons devoir utiliser la directive use strict.
+
+// Lève + d'erreur que le JS classique
+// Exemple déclarer une variable sans let
+// permet une meilleure implémantation du code
+
+"use strict";
+
+// voiture = 2;
+// console.log(voiture);
+
+//----------------------------
+// Les modules (import/export)
+//----------------------------
+
+// Les modules sont interprétées en strict mode de base
+
+//----------
+// LES TESTS
+//----------
 
 //-------------
 // ESCMA SCRIPT
